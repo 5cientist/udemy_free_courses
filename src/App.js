@@ -1,21 +1,32 @@
 import axios from "axios";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import "./App.css";
 
 
 function App() {
+  useEffect(() => {
+    axios.get('https://sumanjay.vercel.app/udemy').then((response)=>{
+         console.log(response.data)
+         setstate(response.data)
+       })
+   
+  }, [])
   const [state, setstate] = useState([])
   return(
     <div>
       
       <h4>udeamy Free Courses</h4>
 
-      <button onClick={()=>{
+      {/*
+       <button onClick={()=>{
        axios.get('https://sumanjay.vercel.app/udemy').then((response)=>{
          console.log(response.data)
          setstate(response.data)
        })
-      }}>Click Me To Fetch Data</button>
+      }}>Click Me To Fetch Data</button> 
+      */}
+
+      
       {state.map((obj)=>{
         return(
           <div>
